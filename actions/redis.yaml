@@ -1,0 +1,26 @@
+---
+name: myredis
+runner_type: python-script
+description: "Stackstorm Redis integration"
+enabled: true
+entry_point: redis.py
+parameters:
+    redisServer:
+        type: string
+        description: "IP Address or Hostname of Redis Server" 
+        required: true
+        position: 1
+    redisPort:
+        type: integer
+        description: "Port of Redis Server" 
+        required: true
+        position: 2
+    var:
+        type: string
+        description: "Variable to Get or Set" 
+        required: true
+        position: 3
+    value:
+        type: string
+        description: "Value of the Variable for Set" 
+        position: 4

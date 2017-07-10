@@ -1,0 +1,9 @@
+---
+ref: st2_redsync
+name: Redsync
+description: A simple pack integrating with Redsync
+keywords:
+    - redsync
+version: 0.0.1
+author: sv
+email: smitaiyengar19@gmail.com
