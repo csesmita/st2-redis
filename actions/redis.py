@@ -15,8 +15,7 @@ class ConnectToRedis(Action):
         if len(var) == 0:
             raise InvalidActionParameterException("No Variable specified")
 
-        t = telnetlib.Telnet()
-        t.open($redisServer, $redisPort)
+        t = telnetlib.Telnet(redisServer, redisPort, timeout = 5)
         """
         GET var 
         SET var value        
@@ -31,12 +30,17 @@ class ConnectToRedis(Action):
 
         if value is not None:
             cmd += value
+        
+        cmd += '\n'
 
+        answer = ''
         while True:
-            answer = t.write(cmd)
+            t.write(cmd.encode('ascii'))
             try:
-                answer = t.read_all()
+                answer = t.read_very_eager()
+                print answer
                 break
             except EOFError:
                 break
+        t.close()
         return answer
