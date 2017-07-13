@@ -1,9 +1,9 @@
 ---
-ref: st2_redsync
-name: Redsync
-description: A simple pack integrating with Redsync
+ref: st2_redis
+name: Redis
+description: A simple pack integrating with Redis
 keywords:
-    - redsync
+    - redis
 version: 0.0.1
 author: sv
-email: smitaiyengar19@gmail.com
+email: smitavijayakumar@gmail.com
