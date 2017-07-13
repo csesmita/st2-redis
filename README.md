@@ -1,6 +1,6 @@
 # st2-redis
 
-This pack is an effort to inetrface with Redis Server.
+This pack is an effort to interface with Redis Server.
 
 ### Assumption
 Redis Server is installed and running at the host and port provided.
