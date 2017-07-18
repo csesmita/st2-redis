@@ -1,0 +1,13 @@
+---
+  redisServer:
+      type: string
+      description: "IP Address or Hostname of Redis Server" 
+      required: true
+      default: "localhost"
+      position: 1
+  redisPort:
+      type: integer
+      description: "Port of Redis Server" 
+      required: true
+      default: 6379 
+      position: 2
