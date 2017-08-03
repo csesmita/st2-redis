@@ -1,0 +1,3 @@
+---
+  redisServer: "localhost"
+  redisPort: 6379
