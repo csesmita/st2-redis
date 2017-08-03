@@ -9,33 +9,38 @@ This script is a simple GET/SET implementation interface
 The user command is translated into a redis command and issued
 """
 class ConnectToRedis(Action):
-    def run(self, redisServer, redisPort, var, value=None):
-        if len(redisServer) == 0:
+    def __init__(self, config):
+        super(ConnectToRedis, self).__init__(config=config)
+        self.redisServer = self.config['redisServer']
+        self.redisPort= self.config['redisPort']
+
+    def run(self, var, value=None):
+        if len(self.redisServer) == 0:
             raise InvalidActionParameterException("No Redis Server specified")
         if len(var) == 0:
             raise InvalidActionParameterException("No Variable specified")
 
-        t = telnetlib.Telnet(redisServer, redisPort, timeout = 5)
+        t = telnetlib.Telnet(self.redisServer, self.redisPort, timeout = 5)
         """
         GET var 
         SET var value        
         """        
-        cmd = 'GET'
+        cmdTxt = 'GET'
         if value is not None:
-            cmd = 'SET'
+            cmdTxt = 'SET'
 
-        cmd += ' '
-        cmd += var
-        cmd += ' '
+        cmdTxt += ' '
+        cmdTxt += var
+        cmdTxt += ' '
 
         if value is not None:
-            cmd += value
+            cmdTxt += value
         
-        cmd += '\n'
+        cmdTxt += '\n'
 
         answer = ''
         while True:
-            t.write(cmd.encode('ascii'))
+            t.write(cmdTxt.encode('ascii'))
             try:
                 answer = t.read_very_eager()
                 print answer

@@ -1,6 +1,6 @@
 ---
 ref: st2_redis
-name: Redis
+name: redis
 description: A simple pack integrating with Redis
 keywords:
     - redis

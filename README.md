@@ -8,7 +8,7 @@ Redis Server is installed and running at the host and port provided.
 ### Usage
 
 ----------
-$ st2 run default.myredis redisServer='localhost' redisPort=6379 var='Class' value='Omega'
+$ st2 run st2_redis.myredis var='Class' value='Omega'
 
 .
 
@@ -18,10 +18,6 @@ status: succeeded
 
 parameters: 
 
-  redisPort: 6379
-  
-  redisServer: localhost
-  
   value: Omega
   
   var: Class
@@ -41,7 +37,7 @@ result:
 
 "
 ----------
-$ st2 run default.myredis redisServer='localhost' redisPort=6379 var='Class'
+$ st2 run st2_redis.myredis var='Class'
 .
 
 id: 59678723d9d3e909478bac24
@@ -49,10 +45,6 @@ id: 59678723d9d3e909478bac24
 status: succeeded
 
 parameters: 
-  
-  redisPort: 6379
-  
-  redisServer: localhost
   
   var: Class
 
